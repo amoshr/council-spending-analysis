@@ -1,0 +1,7 @@
+metric,value
+source_rows,50000
+accepted_rows,49570
+rejected_INVALID_DATE,180
+review_NEGATIVE_SPEND,250
+missing_supplier_rows,646
+reconciled,True
