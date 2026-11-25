@@ -1,12 +1,37 @@
-# Local Council Spending – Audit-Ready Pipeline & Dashboard
+<p align="center">
+  <img src="banner.png" alt="Council Spending Pipeline: audit-ready cleaning, SQL validation and a Power BI dashboard for six councils" width="100%">
+</p>
 
-End-to-end analysis of 50,000 fictional local council spending transactions across six councils, built as an **audit-ready pipeline**: raw file preserved, every rejected row traceable, every layer reconciled to the next.
+<p align="center">
+  <img src="https://img.shields.io/badge/Type-Course%20project-8FA8FF?style=flat-square" alt="Course project">
+  <img src="https://img.shields.io/badge/Skill-Python%20(pandas)-FFC79C?style=flat-square" alt="Python (pandas)">
+  <img src="https://img.shields.io/badge/Skill-PostgreSQL-B9C6FF?style=flat-square" alt="PostgreSQL">
+  <img src="https://img.shields.io/badge/Skill-Power%20BI-FFC79C?style=flat-square" alt="Power BI">
+  <img src="https://img.shields.io/badge/Skill-Data%20quality%20%26%20audit-B9C6FF?style=flat-square" alt="Data quality and audit">
+</p>
 
-**Tools:** Python (pandas, Jupyter) · PostgreSQL 19 (pgAdmin 4) · Power BI Desktop
+> **Course project** (Fortray AI-Powered Business Analyst Programme). All data is synthetic: the six councils, suppliers and figures are fictional. Supplier concentration, negative amounts and direct awards are **review signals, not proof of misconduct**.
 
-> All data is synthetic. Supplier concentration, negative amounts and direct awards are **review signals, not proof of misconduct**.
+## The question
+Can a shared council finance team trust its spending figures, and see where spend differs from budget, without losing track of the rows it removes?
 
----
+## The problem
+- One monthly export of **50,000 transactions** from **six councils** (Jan 2024 – Sep 2026).
+- **180** invalid dates, **250** negative amounts, **650** blank suppliers and **300** mistyped statuses (`"paid "`).
+- Bad rows were deleted by hand with **no record**, and reports **disagreed** on what counts as spend.
+
+## The solution
+A three-layer pipeline. **Python** cleans the raw file and keeps every bad row in an exception file with a reason code. **PostgreSQL** checks, loads and audits the data in one safe transaction. **Power BI** reports spend, budget variance, suppliers and data quality.
+
+## At a glance
+
+| | |
+|---|---|
+| **Rows** | 50,000 in → 49,570 accepted + 180 rejected + 250 review (reconciled) |
+| **Recorded Spend** | £494,674,327.33, identical in Python, SQL staging, final table and views |
+| **SQL** | Staging + final tables, 9 validation checks, load audit, 4 reporting views |
+| **Dashboard** | 4 pages: Overview, Budget Variance, Suppliers, Data Quality |
+| **Documents** | BRD, data dictionary, insight readout, evidence screenshots |
 
 ## Pipeline at a glance
 
